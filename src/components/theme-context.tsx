@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   useCallback,
   useContext,
+  useEffect,
   useLayoutEffect,
   useState,
 } from "react"
@@ -22,15 +23,18 @@ type ThemeProviderType = {
 }
 
 export function ThemeProvider({ children }: ThemeProviderType): ReactElement {
-  const [theme, setTheme] = useState(() => {
-    const preferredTheme = localStorage.getItem("theme")
-    if (preferredTheme) {
-      return preferredTheme
+  const [theme, setTheme] = useState("regular")
+
+  useEffect(() => {
+    let preferredTheme = localStorage.getItem("theme")
+    if (!preferredTheme) {
+      preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        ? "dark"
+        : "regular"
     }
-    return window.matchMedia("(prefers-color-scheme: dark)")
-      ? "dark"
-      : "regular"
-  })
+
+    setTheme(preferredTheme)
+  }, [])
 
   useLayoutEffect(() => {
     if (theme === "dark") {
