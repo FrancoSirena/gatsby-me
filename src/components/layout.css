@@ -62,9 +62,16 @@ body * {
 
 .content {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 9fr 1fr;
   gap: 0.5em;
   padding: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    grid-template-columns: none;
+    gap: 2em;
+  }
 }
 
 .site-header {
@@ -130,6 +137,9 @@ footer {
   list-style-type: none;
   margin: 0;
   font-size: 0.9rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .social li {
@@ -137,7 +147,13 @@ footer {
   align-items: flex-end;
 }
 
-.social li :last-child {
+.social a {
+  display: flex;
+  padding: 0px 8px;
+  align-items: flex-end;
+}
+
+.social li .name {
   margin-left: 16px;
 }
 
@@ -195,4 +211,11 @@ a:hover {
 
 .btn-toggle__toggler--off {
   margin-right: 3em;
+}
+
+@media screen and (max-width: 800px) {
+  pre code {
+    width: 90vw;
+    overflow-x: scroll;
+  }
 }

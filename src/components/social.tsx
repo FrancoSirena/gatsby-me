@@ -5,33 +5,33 @@ export default function Social(): ReactElement {
   return (
     <ul className="social">
       <li>
-        <GitHub />
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/FrancoSirena"
         >
-          GitHub
+          <GitHub />
+          <span className="name">GitHub</span>
         </a>
       </li>
       <li>
-        <Twitter />
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://twitter.com/francosirena"
         >
-          Twitter
+          <Twitter />
+          <span className="name">Twitter</span>
         </a>
       </li>
       <li>
-        <LinkedIn />
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://linkedin.com/in/francosirena"
         >
-          LinkedIn
+          <LinkedIn />
+          <span className="name">LinkedIn</span>
         </a>
       </li>
     </ul>
