@@ -1,3 +1,7 @@
+.gatsby-code-button-container {
+  right: 8px;
+}
+
 .gatsby-code-button-container .gatsby-code-button {
   font-size: 11px;
   padding: 2px 4px;
