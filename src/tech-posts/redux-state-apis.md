@@ -56,8 +56,7 @@ import { select, put } from 'redux-sagas/effects';
 import { requestType, success } from './actions';
 import apiGenerator from './apiGenerator';
 
-function* fetchGlobalData({
-payload: { startDate } }) {
+function* fetchGlobalData({ payload: { startDate } }) {
   const api = yield select(apiGenerator);
   
   const response = yield api.fetchHistoricalData(startDate);
@@ -91,7 +90,9 @@ function ComponentAPI({
 export default connect(state => ({ api: apiGenerator(state) }))(ComponentAPI);
 ```
 
-https://gist.github.com/FrancoSirena/94f956b9c4a2e1c380d2919b3c01c622
+[Check out the GIST](https://gist.github.com/FrancoSirena/94f956b9c4a2e1c380d2919b3c01c622)
+
+
 
 :)
 

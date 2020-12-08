@@ -1,0 +1,21 @@
+.gatsby-code-button-container .gatsby-code-button {
+  font-size: 11px;
+  padding: 2px 4px;
+  background-color: var(--background-over);
+  color: var(--font-color-over);
+  border-radius: 4px;
+}
+
+.gatsby-code-button-container .gatsby-code-button:after {
+  content: none;
+}
+
+.gatsby-code-button-icon {
+  display: none;
+}
+
+.copy-toaster-class {
+  font-size: 12px;
+  background-color: var(--background-over);
+  border-radius: 8px;
+}

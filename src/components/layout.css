@@ -18,6 +18,7 @@ html {
   --background: var(--alabaster);
   --background-over: var(--alabaster-plus);
   --font-color: var(--ultra-violet);
+  --font-color-over: var(--alabaster);
 
   --header: var(--cultured);
   --code: var(--platinum);
@@ -27,6 +28,7 @@ body[data-dark-mode] {
   --background: var(--dark-background);
   --background-over: var(--dark-background-plus);
   --font-color: var(--dark-font);
+  --font-color-over: var(--dark-background);
 
   --header: var(--dark-light-background);
   --code: var(--dark-code);
@@ -53,24 +55,45 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  padding: 0;
   overflow-x: hidden;
+}
+
+.page {
+  width: 100%;
 }
 
 body * {
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 .content {
   display: grid;
-  grid-template-columns: 9fr 1fr;
+  grid-template-columns: repeat(9, 1fr) 140px;
   gap: 0.5em;
-  padding: 16px;
+}
+
+.content main {
+  padding-left: 16px;
+  grid-column: 1 / 10;
+}
+
+.content aside {
+  padding-left: 16px;
+  grid-column: 10;
 }
 
 @media screen and (max-width: 800px) {
   .content {
-    grid-template-columns: none;
-    gap: 2em;
+    display: flex;
+    flex-direction: column;
+  }
+  .content aside {
+    grid-column: unset;
+  }
+  .content main {
+    grid-column: unset;
   }
 }
 
@@ -92,26 +115,6 @@ body * {
   position: absolute;
   right: 8px;
   top: 8px;
-}
-
-pre {
-  position: relative;
-}
-
-pre code {
-  background: var(--code);
-  width: 100%;
-  display: block;
-  font-weight: 500;
-  padding: 8px;
-}
-
-pre:before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  background-color: #b484e0;
-  width: 4px;
 }
 
 footer {
@@ -145,6 +148,12 @@ footer {
 .social li {
   display: flex;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 500px) {
+  .social li .name {
+    display: none;
+  }
 }
 
 .social a {
@@ -211,11 +220,4 @@ a:hover {
 
 .btn-toggle__toggler--off {
   margin-right: 3em;
-}
-
-@media screen and (max-width: 800px) {
-  pre code {
-    width: 90vw;
-    overflow-x: scroll;
-  }
 }
