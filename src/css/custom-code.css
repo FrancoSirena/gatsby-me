@@ -13,6 +13,10 @@ code[class*="language-"] {
   padding-right: 8px;
 }
 
+.gatsby-highlight pre {
+  max-width: 80vw;
+}
+
 .gatsby-highlight:before {
   content: "";
   position: absolute;

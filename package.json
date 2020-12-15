@@ -6,12 +6,16 @@
   "author": "Franco Sirena @francosirena",
   "dependencies": {
     "@types/react-helmet": "^6.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.15.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.4.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.8.0",
+    "gatsby-plugin-typescript": "^2.9.0",
     "gatsby-remark-autolink-headers": "^2.7.0",
     "gatsby-remark-code-buttons": "^2.0.4",
     "gatsby-remark-prismjs": "^3.9.0",
@@ -25,6 +29,7 @@
   },
   "devDependencies": {
     "eslint-config-react-app": "^6.0.0",
+    "typescript": "^4.1.3",
     "prettier": "2.1.2"
   },
   "keywords": [
@@ -37,6 +42,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "type-check": "tsc --noEmit",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {

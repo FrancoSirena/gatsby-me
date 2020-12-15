@@ -1,6 +1,6 @@
 ---
 slug: "/tech-notes/react-notes"
-date: "2020-11-01"
+date: "2020-10-16"
 title: "React conference notes"
 summary: "Quick notes that I took during the React Conf 2020, these are all personal notes"
 ---

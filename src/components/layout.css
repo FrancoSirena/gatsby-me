@@ -8,12 +8,14 @@ html {
   --middle-blue: #8adbed;
   --platinum: #ecebed;
   --alabaster-plus: #302c30c9;
+  --alabaster-hue: #eef2e6;
 
   --dark-background: #1b190e;
   --dark-background-plus: #b190c0;
   --dark-light-background: #252023;
   --dark-font: #b1b8e4;
   --dark-code: #333035;
+  --dark-background-hue: #0b0a0a;
 
   --background: var(--alabaster);
   --background-over: var(--alabaster-plus);
@@ -22,6 +24,7 @@ html {
 
   --header: var(--cultured);
   --code: var(--platinum);
+  --footer: var(--alabaster-hue);
 }
 
 body[data-dark-mode] {
@@ -32,6 +35,7 @@ body[data-dark-mode] {
 
   --header: var(--dark-light-background);
   --code: var(--dark-code);
+  --footer: var(--dark-background-hue);
 }
 
 html {
@@ -61,6 +65,9 @@ body {
 
 .page {
   width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 body * {
@@ -68,20 +75,9 @@ body * {
   max-width: 100%;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr) 140px;
-  gap: 0.5em;
-}
-
 .content main {
-  padding-left: 16px;
-  grid-column: 1 / 10;
-}
-
-.content aside {
-  padding-left: 16px;
-  grid-column: 10;
+  padding: 32px;
+  min-height: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -99,7 +95,7 @@ body * {
 
 .site-header {
   background-color: var(--header);
-  height: 100%;
+  height: 80px;
   width: 100%;
   text-align: center;
   position: relative;
@@ -118,10 +114,14 @@ body * {
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  background: var(--footer);
   font-size: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-auto-flow: column;
+  justify-content: stretch;
+  align-items: start;
+  padding: 1em;
 }
 
 .icon-small {
@@ -141,19 +141,11 @@ footer {
   margin: 0;
   font-size: 0.9rem;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .social li {
   display: flex;
   align-items: flex-end;
-}
-
-@media screen and (max-width: 500px) {
-  .social li .name {
-    display: none;
-  }
 }
 
 .social a {
@@ -179,7 +171,14 @@ a:hover {
 
 .post-link h1 {
   margin: 0;
+}
+
+.post-link header {
   margin-bottom: 8px;
+}
+
+.post-link small {
+  font-size: 0.7em;
 }
 
 .post-link a:visited {
@@ -220,4 +219,13 @@ a:hover {
 
 .btn-toggle__toggler--off {
   margin-right: 3em;
+}
+
+.footnote {
+  align-self: end;
+}
+
+.anchor.after svg {
+  fill: var(--font-color);
+  height: 0.8em;
 }

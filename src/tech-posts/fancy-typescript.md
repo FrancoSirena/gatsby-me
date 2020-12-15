@@ -1,6 +1,6 @@
 ---
 slug: "/tech-notes/fancy-typescript"
-date: "2020-11-01"
+date: "2020-10-30"
 title: "Fancy Typescript"
 summary: "Personal notes that I took during the Fancy Typescript Workshop that occurred during the React Conf 2020."
 ---
