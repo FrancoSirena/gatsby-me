@@ -1,6 +1,6 @@
 ---
 slug: "/tech-notes/lazy-loading"
-date: "2020-11-01"
+date: "2020-06-01"
 title: "Lazy loading, why? when?"
 summary: "Some quick tips about when and why to lazy load."
 ---

@@ -1,6 +1,6 @@
 ---
 slug: "/tech-notes/redux-apis"
-date: "2020-11-01"
+date: "2019-09-01"
 title: "Redux state APIs"
 summary: "Cool trick that you can start using on your Redux projects."
 ---

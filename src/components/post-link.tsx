@@ -10,9 +10,12 @@ type PostLinkType = {
 function PostLink({ post }: PostLinkType): ReactElement {
   return (
     <article className="post-link">
-      <h1>
-        <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
-      </h1>
+      <header>
+        <h1>
+          <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
+        </h1>
+        <small>{post.frontmatter.date.toLocaleString()}</small>
+      </header>
       <p>{post.frontmatter.summary}</p>
     </article>
   )
