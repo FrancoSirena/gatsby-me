@@ -2,7 +2,7 @@
 
 [FrancoSirena.DEV](https://francosirena.dev)
 
-This site was created using the default starter kit of gatsby and then I was changing as necessary to get to the pointer where it is at.
+This site was created using the default starter kit of gatsby and then I was changing as necessary to get to the point where it is at.
 
 Powered by [Gatsby](https://gatsbyjs.com)
 
