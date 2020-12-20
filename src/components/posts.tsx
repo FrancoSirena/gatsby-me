@@ -38,7 +38,7 @@ export default function Posts(): ReactElement {
     }
   `)
   return (
-    <nav>
+    <nav className="navigation-post-links">
       {edges.map(edge => (
         <PostLink key={edge.node.id} post={edge.node} />
       ))}

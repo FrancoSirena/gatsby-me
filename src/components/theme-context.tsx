@@ -23,7 +23,17 @@ type ThemeProviderType = {
 }
 
 export function ThemeProvider({ children }: ThemeProviderType): ReactElement {
-  const [theme, setTheme] = useState("regular")
+  const [theme, setTheme] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      let preferredTheme = localStorage.getItem("theme")
+      if (!preferredTheme) {
+        preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          ? "dark"
+          : "regular"
+      }
+      return preferredTheme
+    }
+  })
 
   useEffect(() => {
     let preferredTheme = localStorage.getItem("theme")

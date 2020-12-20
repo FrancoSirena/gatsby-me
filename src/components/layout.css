@@ -1,4 +1,5 @@
 @import "../css/typography.css";
+@import "../css/animations.css";
 
 html {
   --alabaster: #f1efe4;
@@ -44,6 +45,7 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
 }
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;

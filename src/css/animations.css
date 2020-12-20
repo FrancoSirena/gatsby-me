@@ -1,0 +1,21 @@
+@media screen and (prefers-reduced-motion: no-preference) {
+  body,
+  body * {
+    transition: background-color ease-in 300ms;
+  }
+
+  .blog-post-container {
+    animation: slidein ease-in 150ms;
+  }
+
+  @keyframes slidein {
+    0% {
+      position: absolute;
+      left: -500px;
+    }
+    100% {
+      position: relative;
+      left: 0;
+    }
+  }
+}
