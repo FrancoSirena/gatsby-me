@@ -29,7 +29,10 @@ const Layout: React.FC<LayoutPropsType> = ({ children }) => {
   return (
     <ThemeProvider>
       <div className="page">
-        <div>
+        <svg viewBox="0 0 100 100" className="triangle">
+          <polygon id="e1_polygon" points="0 0, 0 100, 100 0" />
+        </svg>
+        <div className="body">
           <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
           <div className="content">
             <main>{children}</main>

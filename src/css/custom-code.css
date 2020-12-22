@@ -21,7 +21,7 @@ code[class*="language-"] {
   content: "";
   position: absolute;
   height: 100%;
-  background-color: #b484e0;
+  background-color: var(--font-color);
   width: 4px;
   z-index: 10;
 }

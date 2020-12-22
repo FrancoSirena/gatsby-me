@@ -2,6 +2,7 @@ import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import "./post.css"
+import SEO from "../components/seo"
 
 type MarkdownRemarkType = {
   markdownRemark: {
@@ -19,6 +20,7 @@ export default function Template({ data }: TemplateType): ReactElement {
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
+      <SEO title={frontmatter.title} />
       <div className="blog-post-container">
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>

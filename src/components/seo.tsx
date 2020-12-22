@@ -38,7 +38,7 @@ function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
   const defaultTitle = site.siteMetadata?.title
 
   return (
-    <Helmet titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}>
+    <Helmet titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}>
       <html lang={lang} />
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
@@ -51,6 +51,10 @@ function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
       {meta.map(info => (
         <meta {...info} />
       ))}
+      <link
+        href="https://fonts.googleapis.com/css?family=Manjari|Slabo+27px&display=swap"
+        rel="stylesheet"
+      />
       <title itemProp="name" lang="en">
         {title}
       </title>
