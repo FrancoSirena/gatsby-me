@@ -51,10 +51,6 @@ function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
       {meta.map(info => (
         <meta {...info} />
       ))}
-      <link
-        href="https://fonts.googleapis.com/css?family=Manjari|Slabo+27px&display=swap"
-        rel="stylesheet"
-      />
       <title itemProp="name" lang="en">
         {title}
       </title>
