@@ -1,4 +1,4 @@
 type ThemeContextType = {
-  theme: Theme
+  theme: Theme | undefined
   toggleTheme: () => void
 }

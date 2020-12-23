@@ -1,29 +1,12 @@
-@import "../css/animations.css";
+@import "./typography.css";
+@import "./palette.css";
+@import "./animations.css";
 
-html {
-  --dark-background: #1b190e;
-  --dark-background-plus: #b190c0;
-  --dark-light-background: #44393f;
-  --dark-font: #b1b8e4;
-  --dark-code: #333035;
-  --dark-background-hue: #1c1e2b;
-
-  --background: #f6f7f2;
-  --background-over: #787e5d;
-  --font-color: #232615;
-  --font-color-over: #f1efe4;
-
-  --header: #dfe5c3;
-  --code: #f2f0f1;
-  --footer: #fff;
-}
-
-body[data-dark-mode] {
+body[data-color-mode="dark"] {
   --background: var(--dark-background);
-  --background-over: var(--dark-background-plus);
-  --font-color: var(--dark-font);
+  --background-over: var(--dark-background-over);
+  --font-color: var(--dark-font-color);
   --font-color-over: var(--dark-background);
-
   --header: var(--dark-light-background);
   --code: var(--dark-code);
   --footer: var(--dark-background-hue);
@@ -34,6 +17,13 @@ html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 h1,
@@ -47,9 +37,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
-  background-color: var(--background);
-  color: var(--font-color);
   font-family: "Manjari", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -62,8 +49,21 @@ body {
   padding: 0;
 }
 
-.body {
+.logo {
+  max-width: 50px;
+}
+
+.header-logo {
+  width: 50px;
+}
+
+.header-link {
+  width: 200px;
+}
+
+.site-content {
   padding: 0px 16px;
+  z-index: 1;
 }
 
 .intro {
@@ -79,10 +79,10 @@ body {
   height: 20vw;
   position: fixed;
   left: 0;
-  opacity: 0.2;
+  opacity: 0.3;
   top: 0;
   fill: var(--header);
-  z-index: -1;
+  z-index: 0;
 }
 
 .page {
@@ -90,6 +90,8 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: 1fr auto;
+  background-color: var(--background);
+  color: var(--font-color);
 }
 
 body * {
@@ -122,11 +124,12 @@ body * {
   position: relative;
   padding: 16px;
   border-bottom: 1px solid var(--font-color);
+  display: flex;
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 .site-header__theme {
@@ -143,7 +146,7 @@ footer {
   grid-auto-flow: column;
   justify-content: stretch;
   align-items: start;
-  padding: 1em;
+  padding: 1rem;
 }
 
 .icon-small {
@@ -200,7 +203,7 @@ a:hover {
 }
 
 .post-link small {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
 .post-link a:visited {
@@ -222,7 +225,7 @@ a:hover {
   background-color: var(--background-over);
   color: var(--font-color);
   font-weight: bolder;
-  width: 4em;
+  width: 4rem;
   border-radius: 25px;
   text-align: right;
   padding: 4px 4px;
@@ -236,11 +239,11 @@ a:hover {
 }
 
 .btn-toggle__toggler--on {
-  margin-right: 0.2em;
+  margin-right: 0.2rem;
 }
 
 .btn-toggle__toggler--off {
-  margin-right: 3em;
+  margin-right: 3rem;
 }
 
 .footnote {
@@ -249,7 +252,7 @@ a:hover {
 
 .anchor.after svg {
   fill: var(--font-color);
-  height: 0.8em;
+  height: 0.8rem;
 }
 
 .separator {

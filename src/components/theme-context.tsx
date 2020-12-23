@@ -5,7 +5,6 @@ import React, {
   useCallback,
   useContext,
   useEffect,
-  useLayoutEffect,
   useState,
 } from "react"
 
@@ -23,20 +22,18 @@ type ThemeProviderType = {
 }
 
 export function ThemeProvider({ children }: ThemeProviderType): ReactElement {
-  const [theme, setTheme] = useState(
-    (): Theme => {
-      if (typeof localStorage !== "undefined") {
-        let preferredTheme = localStorage.getItem("theme")
-        if (!preferredTheme) {
-          preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-            ? "dark"
-            : "regular"
-        }
-        return preferredTheme as Theme
+  const [theme, setTheme] = useState<Theme | undefined>(() => {
+    if (typeof localStorage !== "undefined") {
+      let preferredTheme = localStorage.getItem("theme")
+      if (!preferredTheme) {
+        preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          ? "dark"
+          : "regular"
       }
-      return "regular"
+      return preferredTheme as Theme
     }
-  )
+    return undefined
+  })
 
   useEffect(() => {
     let preferredTheme = localStorage.getItem("theme")
@@ -49,11 +46,11 @@ export function ThemeProvider({ children }: ThemeProviderType): ReactElement {
     setTheme(preferredTheme as Theme)
   }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (theme === "dark") {
-      document.body.setAttribute("data-dark-mode", "")
+      document.body.setAttribute("data-color-mode", "dark")
     } else {
-      document.body.removeAttribute("data-dark-mode")
+      document.body.setAttribute("data-color-mode", "regular")
     }
   }, [theme])
 

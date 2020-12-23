@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement, StyleHTMLAttributes } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img, { FluidObject } from "gatsby-image"
 
@@ -10,12 +10,18 @@ type PlaceholderImageType = {
   }
 }
 
-function Image(): ReactElement {
+type LogoType = {
+  className?: string
+  alt: string
+  style?: StyleHTMLAttributes<Img>
+}
+
+function Logo(imgProps: LogoType): ReactElement {
   const data = useStaticQuery<PlaceholderImageType>(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      placeholderImage: file(relativePath: { eq: "icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -27,7 +33,9 @@ function Image(): ReactElement {
     return <div>Picture not found</div>
   }
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <Img fluid={data.placeholderImage.childImageSharp.fluid} {...imgProps} />
+  )
 }
 
-export default Image
+export default Logo
