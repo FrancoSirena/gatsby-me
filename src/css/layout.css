@@ -67,7 +67,6 @@ body {
 }
 
 .intro {
-  text-align: right;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 48px;
@@ -261,4 +260,56 @@ a:hover {
   width: 100%;
   height: 30px;
   fill: var(--font-color);
+}
+
+.nav-footer {
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.nav-footer:hover,
+.nav-footer:active {
+  color: var(--font-color-over);
+  background-color: var(--background-over);
+}
+
+.nav-footer__previous {
+  text-align: right;
+}
+
+.nav-footer__next {
+  text-align: left;
+}
+
+.nav-footer__previous::after {
+  content: ">";
+  position: absolute;
+  top: 1rem;
+  right: 0.2rem;
+}
+
+.nav-footer__next::before {
+  content: "<";
+  position: absolute;
+  top: 1rem;
+  left: 0.2rem;
+}
+
+.intro-pic {
+  width: 150px;
+  padding: 0 1rem;
+  float: left;
+  shape-outside: circle();
+}
+
+.intro-text {
+  padding-top: 0.5rem;
+}
+
+.intro-pic__picture {
+  width: 100px;
+  height: 100px;
+  clip-path: circle();
 }

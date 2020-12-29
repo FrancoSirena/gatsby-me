@@ -11,6 +11,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           node {
             frontmatter {
               slug
+              date
             }
           }
         }
@@ -29,6 +30,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         // additional data can be passed via context
         slug: node.frontmatter.slug,
+        date: node.frontmatter.date,
       },
     })
   })
