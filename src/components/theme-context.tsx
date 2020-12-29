@@ -21,29 +21,26 @@ type ThemeProviderType = {
   children: ReactNode
 }
 
+function readTheme(): Theme {
+  let preferredTheme = localStorage.getItem("theme")
+  if (!preferredTheme) {
+    preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "regular"
+  }
+  return preferredTheme as Theme
+}
+
 export function ThemeProvider({ children }: ThemeProviderType): ReactElement {
   const [theme, setTheme] = useState<Theme | undefined>(() => {
     if (typeof localStorage !== "undefined") {
-      let preferredTheme = localStorage.getItem("theme")
-      if (!preferredTheme) {
-        preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-          ? "dark"
-          : "regular"
-      }
-      return preferredTheme as Theme
+      return readTheme()
     }
     return undefined
   })
 
   useEffect(() => {
-    let preferredTheme = localStorage.getItem("theme")
-    if (!preferredTheme) {
-      preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        ? "dark"
-        : "regular"
-    }
-
-    setTheme(preferredTheme as Theme)
+    setTheme(readTheme())
   }, [])
 
   useEffect(() => {

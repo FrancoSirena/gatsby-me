@@ -9,6 +9,7 @@ export default function Social(): ReactElement {
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/FrancoSirena"
+          data-testid="github"
         >
           <GitHub />
           <span className="name">GitHub</span>
@@ -19,6 +20,7 @@ export default function Social(): ReactElement {
           target="_blank"
           rel="noopener noreferrer"
           href="https://twitter.com/francosirena"
+          data-testid="twitter"
         >
           <Twitter />
           <span className="name">Twitter</span>
@@ -29,6 +31,7 @@ export default function Social(): ReactElement {
           target="_blank"
           rel="noopener noreferrer"
           href="https://linkedin.com/in/francosirena"
+          data-testid="linkedin"
         >
           <LinkedIn />
           <span className="name">LinkedIn</span>
