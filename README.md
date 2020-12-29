@@ -1,3 +1,5 @@
+
+[![codecov](https://codecov.io/gh/FrancoSirena/gatsby-me/branch/main/graph/badge.svg?token=880M2FLKD7)](https://codecov.io/gh/FrancoSirena/gatsby-me) [![Netlify Status](https://api.netlify.com/api/v1/badges/cb4401b8-51f4-4a93-87cb-64616d9cacb5/deploy-status)](https://app.netlify.com/sites/upbeat-bohr-4a3681/deploys)
 # My Personal Blog
 
 [francosirena.DEV](https://francosirena.dev)
