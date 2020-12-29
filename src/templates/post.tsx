@@ -3,11 +3,19 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import "./post.css"
 import SEO from "../components/seo"
+import PostFooter from "../components/post-footer"
 
 type MarkdownRemarkType = {
   markdownRemark: {
     html: string
     frontmatter: FrontMatterType
+    date: string
+  }
+  previous: {
+    edges: Array<NodeType>
+  }
+  next: {
+    edges: Array<NodeType>
   }
 }
 
@@ -16,7 +24,15 @@ type TemplateType = {
 }
 
 export default function Template({ data }: TemplateType): ReactElement {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const {
+    markdownRemark,
+    previous: {
+      edges: [previous],
+    },
+    next: {
+      edges: [next],
+    },
+  } = data
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
@@ -30,18 +46,49 @@ export default function Template({ data }: TemplateType): ReactElement {
           />
         </div>
       </div>
+      <hr />
+      <PostFooter next={next} previous={previous} />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query($slug: String!, $date: Date) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        unformattedDate: date
         slug
         title
+      }
+    }
+    previous: allMarkdownRemark(
+      limit: 1
+      filter: { frontmatter: { date: { lt: $date } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
+    }
+    next: allMarkdownRemark(
+      limit: 1
+      filter: { frontmatter: { date: { gt: $date } } }
+      sort: { order: ASC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+          }
+        }
       }
     }
   }
