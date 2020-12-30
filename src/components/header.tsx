@@ -25,8 +25,12 @@ export default function Header({ siteTitle }: HeaderType): ReactElement {
           <ToggleTheme />
         </div>
       </header>
-      <svg viewBox="0 0 300 100" className="separator">
-        <polygon id="e1_polygon" points="0 0, 300 0, 150 100" />
+      <svg
+        viewBox="0 0 300 100"
+        className="separator"
+        aria-label="Text separator"
+      >
+        <polygon points="0 0, 300 0, 150 100" />
       </svg>
     </>
   )

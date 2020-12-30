@@ -37,7 +37,7 @@ export default function Template({ data }: TemplateType): ReactElement {
   return (
     <Layout>
       <SEO title={frontmatter.title} />
-      <div className="blog-post-container">
+      <div className="blog-post-container" data-testid="post-container">
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
           <div

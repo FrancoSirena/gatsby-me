@@ -4,6 +4,32 @@ pre[class*="language-"],
 code[class*="language-"] {
   background: var(--code);
   color: var(--font-color);
+  outline: 0;
+}
+
+code[class*="language-"] .token.keyword {
+  color: var(--code-keyword);
+}
+
+code[class*="language-"] .token.class-name,
+code[class*="language-"] .token.function {
+  color: var(--code-class-name);
+}
+
+code[class*="language-"] .token.punctuation {
+  color: var(--code-punctuation);
+}
+
+code[class*="language-"] .token.regex {
+  color: var(--code-regex);
+}
+
+code[class*="language-"] .token.builtin {
+  color: var(--code-builtin);
+}
+
+code[class*="language-"] .token.constant {
+  color: var(--code-constant);
 }
 
 .gatsby-highlight {

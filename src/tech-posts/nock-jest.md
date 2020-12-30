@@ -229,7 +229,7 @@ describe("component", () => {
 
 And the results are:
 
-```
+```log
  PASS  src/tests/component-legit.test.js (56 MB heap size)
   ● Console
 

@@ -10,7 +10,7 @@ describe("(Component) PostFooter", () => {
           title: "Next Item",
           slug: "slug-next",
           summary: "",
-          date: new Date(),
+          date: new Date().toLocaleString(),
         },
       },
     }
@@ -20,7 +20,7 @@ describe("(Component) PostFooter", () => {
           title: "Previous Item",
           slug: "slug-previous",
           summary: "",
-          date: new Date(),
+          date: new Date().toLocaleString(),
         },
       },
     }

@@ -9,12 +9,16 @@ type PostLinkType = {
 
 function PostLink({ post }: PostLinkType): ReactElement {
   return (
-    <article className="post-link">
+    <article className="post-link" data-testid="link-post-article">
       <header>
         <h1>
-          <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
+          <Link to={post.frontmatter.slug} data-testid="link-post">
+            {post.frontmatter.title}
+          </Link>
         </h1>
-        <small>{post.frontmatter.date.toLocaleString()}</small>
+        <small data-testid="link-date" data-date={post.frontmatter.rawDate}>
+          {post.frontmatter.date}
+        </small>
       </header>
       <p>{post.frontmatter.summary}</p>
     </article>

@@ -22,7 +22,6 @@ Using tuples are cool, you can specify how many items it returns and in which po
 ```ts
 useState(initalizer: number) : [number, Function]
 ```
-
 ## Function Overloading
 - You can have different signatures for the same function, e.g._
     - Function fn(value: string): string
@@ -40,7 +39,7 @@ Intersections, like extends for Interfaces: `TypeA & TypeB` = must comply with b
 Discriminated Unions, you can set const keys on your Interface/Type
 
 ## Shorthand declaration for classes
-```javascript
+```ts
 class MyClass {
 	constructor(public a: string, public b: Date) {}
 }
@@ -51,7 +50,7 @@ Automatically declares classes properties a and b and assign it at the construct
 Generics, it automatically assumes a type as you call the method. If you have N args you can have N Generic types.
 
 A funny way to use it is with extends so it can have a basic set of props, such as:
-```javascript
+```ts
 function myFn<T extends { length: number }>(var: T): T
 ```
 
@@ -65,7 +64,7 @@ function myFn<T extends { length: number }>(var: T): T
 
 ## Utilities
 To access SubTypes you can just access it by key, e.g.:
-```javascript
+```ts
 type NestedType = {
 	name: string
 	age: number
@@ -81,13 +80,12 @@ const user = SuperType[‘nested’]
 ReturnType utility is handful for figuring out the typeof of a method, like you are using an external method and help you to avoid copying the method return type in more than one place
 
 KeyOf operator is a way of extracting keys of a given type to create unions
-
-```javascript
-Type CloneType<BASE> = {
+```ts
+type CloneType<BASE> = {
 	[PROP in keyof BASE]: BASE[PROP]
 }
 
-Type Record<K extends keyof any, T> = {
+type Record<K extends keyof any, T> = {
 	[P in K]: T
 }
 ```
