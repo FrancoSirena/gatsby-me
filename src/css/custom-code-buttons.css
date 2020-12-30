@@ -1,5 +1,6 @@
 .gatsby-code-button-container {
   right: 8px;
+  outline: 0;
 }
 
 .gatsby-code-button-container .gatsby-code-button {

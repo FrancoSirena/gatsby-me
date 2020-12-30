@@ -1,3 +1,5 @@
+/// <reference types="Jest" />
+
 import React, { ReactElement } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { ThemeProvider, useThemeContext } from "../theme-context"

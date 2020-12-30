@@ -17,7 +17,7 @@ describe("(Component) NavLinkAnchor", () => {
         frontmatter: {
           title: "Test",
           slug: "/my-slug",
-          date: new Date(),
+          date: new Date().toLocaleString(),
           summary: "",
         },
       },
@@ -43,7 +43,7 @@ describe("(Component) NavLinkText", () => {
         frontmatter: {
           title: "Test Title",
           slug: "/my-slug",
-          date: new Date(),
+          date: new Date().toLocaleString(),
           summary: "",
         },
       },

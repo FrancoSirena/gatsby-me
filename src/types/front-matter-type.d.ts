@@ -1,5 +1,6 @@
 type FrontMatterType = {
-  date: Date
+  date: string
+  rawDate?: Date
   slug: string
   title: string
   summary: string

@@ -2,23 +2,62 @@ body {
   --dark-background: #1b190e;
   --dark-background-over: #b190c0;
   --dark-light-background: #44393f;
-  --dark-font-color: #b1b8e4;
-  --dark-code: #333035;
+  --dark-font-color: #d6d9f3;
   --dark-background-hue: #1c1e2b;
 
+  --dark-punctuation: #fff2ff;
+  --dark-regex: #e56530;
+  --dark-code: #000;
+  --dark-keyword: #859900;
+  --dark-class-name: #b58900;
+  --dark-builtin: #2aa198;
+  --dark-constant: #268bd2;
+
   --regular-background: #f6f7f2;
-  --regular-background-over: #787e5d;
+  --regular-background-over: #535548;
   --regular-font-color: #232615;
-  --regular-font-color-over: #f1efe4;
+  --regular-font-color-over: #fcfbfa;
   --regular-header: #dfe5c3;
-  --regular-code: #f1ebeb;
   --regular-footer: #ffff;
+
+  --regular-punctuation: #3d5751;
+  --regular-regex: #fff2ff;
+  --regular-code: #ffff;
+  --regular-keyword: #0e8261;
+  --regular-class-name: #826306;
+  --regular-builtin: #3961ff;
+  --regular-constant: #860000;
 
   --background: var(--regular-background);
   --background-over: var(--regular-background-over);
   --font-color: var(--regular-font-color);
+
+  --code: var(--regular-code);
+  --code-punctuation: var(--regular-punctuation);
+  --code-regex: var(--regular-regex);
+  --code-keyword: var(--regular-keyword);
+  --code-builtin: var(--regular-builtin);
+  --code-constant: var(--regular-constant);
+  --code-class-name: var(--regular-class-name);
+
   --font-color-over: var(--regular-font-color-over);
   --header: var(--regular-header);
-  --code: var(--regular-code);
   --footer: var(--regular-footer);
+}
+
+body[data-color-mode="dark"] {
+  --background: var(--dark-background);
+  --background-over: var(--dark-background-over);
+  --font-color: var(--dark-font-color);
+  --font-color-over: var(--dark-background);
+  --header: var(--dark-light-background);
+  --footer: var(--dark-background-hue);
+
+  --code: var(--dark-code);
+  --code-punctuation: var(--dark-punctuation);
+  --code-regex: var(--dark-regex);
+  --code-keyword: var(--dark-keyword);
+  --code-builtin: var(--dark-builtin);
+  --code-constant: var(--dark-constant);
+  --code-class-name: var(--dark-class-name);
 }

@@ -2,16 +2,6 @@
 @import "./palette.css";
 @import "./animations.css";
 
-body[data-color-mode="dark"] {
-  --background: var(--dark-background);
-  --background-over: var(--dark-background-over);
-  --font-color: var(--dark-font-color);
-  --font-color-over: var(--dark-background);
-  --header: var(--dark-light-background);
-  --code: var(--dark-code);
-  --footer: var(--dark-background-hue);
-}
-
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -222,7 +212,7 @@ a:hover {
 .btn-toggle {
   border: 0;
   background-color: var(--background-over);
-  color: var(--font-color);
+  color: var(--code);
   font-weight: bolder;
   width: 4rem;
   border-radius: 25px;

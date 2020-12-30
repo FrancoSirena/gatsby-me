@@ -1,1 +1,1 @@
-type Theme = "dark" | "regular"
+type Theme = "dark" | "regular" | undefined

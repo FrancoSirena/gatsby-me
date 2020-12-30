@@ -52,7 +52,7 @@ function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
         <meta {...info} />
       ))}
       <title itemProp="name" lang="en">
-        {title}
+        {title || defaultTitle}
       </title>
     </Helmet>
   )

@@ -28,6 +28,7 @@ export default function Posts(): ReactElement {
             excerpt(pruneLength: 250)
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
+              rawDate: date
               slug
               title
               summary
@@ -38,7 +39,7 @@ export default function Posts(): ReactElement {
     }
   `)
   return (
-    <nav className="navigation-post-links">
+    <nav className="navigation-post-links" data-testid="posts-list">
       {edges.map(edge => (
         <PostLink key={edge.node.id} post={edge.node} />
       ))}

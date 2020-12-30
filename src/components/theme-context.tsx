@@ -32,7 +32,7 @@ function readTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: ThemeProviderType): ReactElement {
-  const [theme, setTheme] = useState<Theme | undefined>(() => {
+  const [theme, setTheme] = useState<Theme>(() => {
     if (typeof localStorage !== "undefined") {
       return readTheme()
     }

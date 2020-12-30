@@ -28,7 +28,11 @@ const Layout: React.FC<LayoutPropsType> = ({ children }) => {
   return (
     <ThemeProvider>
       <div className="page">
-        <svg viewBox="0 0 100 100" className="triangle">
+        <svg
+          viewBox="0 0 100 100"
+          className="triangle"
+          aria-label="Left corner triangle"
+        >
           <polygon id="e1_polygon" points="0 0, 0 100, 100 0" />
         </svg>
         <div className="site-content">
