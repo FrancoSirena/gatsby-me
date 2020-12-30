@@ -2,7 +2,7 @@
 
 import React, { ReactElement } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { ThemeProvider, useThemeContext } from "../theme-context"
+import { ThemeContext, ThemeProvider, useThemeContext } from "../theme-context"
 
 function Dummy(): ReactElement {
   const { theme, toggleTheme } = useThemeContext()
@@ -94,5 +94,15 @@ describe("(Component) ThemeProvider", () => {
     screen.getByText("My theme is: dark")
 
     expect(localStorage.getItem("theme")).toEqual("dark")
+  })
+
+  test("It should work with ThemeContext defaults", () => {
+    render(<Dummy />)
+
+    screen.getByText("My theme is: regular")
+
+    fireEvent.click(screen.getByText("Toggle"))
+
+    screen.getByText("My theme is: regular")
   })
 })
