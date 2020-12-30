@@ -45,24 +45,26 @@ describe("List all posts by date", () => {
       .invoke("text")
       .as("next-previous")
     cy.get("@post").click().invoke("text").as("post-title")
-    cy.get("@post-title").then(item => {
-      cy.get("body").findAllByText(item)
-    })
+    cy.get("@post-title").then(item =>
+      cy.get("h1").invoke("text").should("contain", item)
+    )
     cy.get("@previous")
       .then(item => {
-        cy.get("body").findAllByText(item)
+        cy.get("div").findAllByText(item)
       })
       .get("@next")
-      .then(item => cy.get("body").findAllByText(item))
+      .then(item => cy.get("div").findAllByText(item))
       .parent()
       .click()
+      .get("@next")
+      .then(item => cy.get("h1").invoke("text").should("contain", item))
       .get("@next-previous")
       .then(item => {
-        cy.get("body").findAllByText(item)
+        cy.get("div").findAllByText(item)
       })
       .get("@post-title")
       .then(item => {
-        cy.get("body").findAllByText(item)
+        cy.get("div").findAllByText(item)
       })
   })
 
