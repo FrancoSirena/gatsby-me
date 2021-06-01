@@ -178,6 +178,14 @@ a:active {
   font-style: normal;
   color: var(--font-color);
 }
+body[data-color-mode="dark"] .blog-post-content a[href^="http"]:after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAA4mAAAOJgGi7yX8AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAFRJREFUKJGdj9ERwCAMQonnII6m+w+BP+1d1Ii2fIYHSYCPMmWS5ACbWXoNLw8AaMcmN69PRx2YKODhhZkDMyxPIlkkvNlQlL99OvKTAiPl2y2/1QF1hW3ovrGXnwAAAABJRU5ErkJggg==);
+}
+
+.blog-post-content a[href^="http"]:after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin-left: 3px;
+}
 
 a:hover {
   text-decoration: underline;
