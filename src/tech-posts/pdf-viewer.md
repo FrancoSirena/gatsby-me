@@ -215,7 +215,7 @@ function PDFPage({ pageIndex, pdf }) {
         canvasContext: ctx,
       })
     }
-  }, [loaded, page])
+  }, [ready, page])
 
   return (
     <canvas
