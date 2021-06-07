@@ -1,3 +1,12 @@
+code[class="language-text"] {
+  font-weight: 400;
+}
+
+code[class*="language-"]::selection,
+pre[class*="language-"] *::selection {
+  background: var(--code-selection);
+}
+
 .blog-post-container pre[class*="language-"],
 :not(pre) > code[class*="language-"],
 pre[class*="language-"],
