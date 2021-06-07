@@ -12,6 +12,7 @@ body {
   --dark-class-name: #b58900;
   --dark-builtin: #2aa198;
   --dark-constant: #268bd2;
+  --dark-code-selection: #073642;
 
   --regular-background: #f6f7f2;
   --regular-background-over: #535548;
@@ -23,6 +24,7 @@ body {
   --regular-punctuation: #3d5751;
   --regular-regex: #7a067a;
   --regular-code: #ffff;
+  --regular-code-selection: #b8eaf7;
   --regular-keyword: #0e8261;
   --regular-class-name: #826306;
   --regular-builtin: #3961ff;
@@ -33,6 +35,7 @@ body {
   --font-color: var(--regular-font-color);
 
   --code: var(--regular-code);
+  --code-selection: var(--regular-code-selection);
   --code-punctuation: var(--regular-punctuation);
   --code-regex: var(--regular-regex);
   --code-keyword: var(--regular-keyword);
@@ -54,6 +57,7 @@ body[data-color-mode="dark"] {
   --footer: var(--dark-background-hue);
 
   --code: var(--dark-code);
+  --code-selection: var(--dark-code-selection);
   --code-punctuation: var(--dark-punctuation);
   --code-regex: var(--dark-regex);
   --code-keyword: var(--dark-keyword);
