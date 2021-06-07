@@ -1,5 +1,5 @@
 ---
-slug: "/tech-notes/pdf-viewer.md"
+slug: "/tech-notes/pdf-viewer"
 date: "2021-06-01"
 title: "How to create your very own PDF Viewer with React"
 summary: "Simple example of how to render PDFs in the browser powered by `pdfjs` lib."
