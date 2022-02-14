@@ -71,3 +71,6 @@ yarn-error.log
 
 # Cypress
 *.mp4
+
+.frontmatter
+.vscode
