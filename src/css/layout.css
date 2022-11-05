@@ -191,6 +191,10 @@ a:hover {
   text-decoration: underline;
 }
 
+p a:link {
+  text-decoration: underline;
+}
+
 .post-link h1 {
   margin: 0;
 }

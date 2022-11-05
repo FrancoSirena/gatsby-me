@@ -2,7 +2,7 @@ import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import "./post.css"
-import SEO from "../components/seo"
+import { SEO } from "../components/seo"
 import PostFooter from "../components/post-footer"
 
 type MarkdownRemarkType = {
@@ -36,7 +36,6 @@ export default function Template({ data }: TemplateType): ReactElement {
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-      <SEO title={frontmatter.title} />
       <div className="blog-post-container" data-testid="post-container">
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
@@ -51,6 +50,8 @@ export default function Template({ data }: TemplateType): ReactElement {
     </Layout>
   )
 }
+
+export const Head = ({ data: { markdownRemark: {frontmatter } } }: Pick<TemplateType, 'data'>) => <SEO title={frontmatter.title} />
 
 export const pageQuery = graphql`
   query($slug: String!, $date: Date) {

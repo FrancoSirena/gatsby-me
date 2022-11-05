@@ -13,6 +13,8 @@ body {
   --dark-builtin: #2aa198;
   --dark-constant: #268bd2;
   --dark-code-selection: #073642;
+  --dark-comment: #ccdad1;
+  --dark-string: #268bd2;
 
   --regular-background: #f6f7f2;
   --regular-background-over: #535548;
@@ -29,6 +31,8 @@ body {
   --regular-class-name: #826306;
   --regular-builtin: #3961ff;
   --regular-constant: #860000;
+  --regular-comment: #697878;
+  --regular-string: #4661ce;
 
   --background: var(--regular-background);
   --background-over: var(--regular-background-over);
@@ -42,6 +46,8 @@ body {
   --code-builtin: var(--regular-builtin);
   --code-constant: var(--regular-constant);
   --code-class-name: var(--regular-class-name);
+  --code-comment: var(--regular-comment);
+  --code-string: var(--regular-string);
 
   --font-color-over: var(--regular-font-color-over);
   --header: var(--regular-header);
@@ -64,4 +70,5 @@ body[data-color-mode="dark"] {
   --code-builtin: var(--dark-builtin);
   --code-constant: var(--dark-constant);
   --code-class-name: var(--dark-class-name);
+  --code-comment: var(--dark-comment);
 }

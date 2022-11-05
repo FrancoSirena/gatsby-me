@@ -41,6 +41,14 @@ code[class*="language-"] .token.constant {
   color: var(--code-constant);
 }
 
+code[class*="language-"] .token.string {
+  color: var(--code-string);
+}
+
+code[class*="language-"] .token.comment {
+  color: var(--code-comment);
+}
+
 .gatsby-highlight {
   position: relative;
   max-width: 95vw;
