@@ -6,16 +6,11 @@ export default function Footer(): ReactElement {
   return (
     <footer>
       <div>
-        <Link to="/" className="unstyled">
+        <Link to="/">
           Franco Sirena {new Date().getFullYear()}
         </Link>
       </div>
       <Social />
-      <div className="footnote">
-        Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </div>
     </footer>
   )
 }

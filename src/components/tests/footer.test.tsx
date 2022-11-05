@@ -11,12 +11,5 @@ describe("(Component) Footer", () => {
     screen.getByText("GitHub")
     screen.getByText("Twitter")
     screen.getByText("LinkedIn")
-    expect(screen.getByText("Built with").lastChild?.textContent).toEqual(
-      "Gatsby"
-    )
-
-    expect(screen.getByText("Gatsby").getAttribute("href")).toEqual(
-      "https://www.gatsbyjs.com"
-    )
   })
 })

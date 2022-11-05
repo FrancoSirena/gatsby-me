@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react"
-import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 type SiteMetadataType = {
@@ -19,7 +18,7 @@ type SEOPropTypes = {
   title: string
 }
 
-function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
+export function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
   const { site } = useStaticQuery<SiteMetadataType>(
     graphql`
       query {
@@ -38,7 +37,7 @@ function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
   const defaultTitle = site.siteMetadata?.title
 
   return (
-    <Helmet titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}>
+    <>
       <html lang={lang} />
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
@@ -54,7 +53,7 @@ function SEO({ description, lang, meta, title }: SEOPropTypes): ReactElement {
       <title itemProp="name" lang="en">
         {title || defaultTitle}
       </title>
-    </Helmet>
+      </>
   )
 }
 
@@ -63,5 +62,3 @@ SEO.defaultProps = {
   meta: [],
   description: ``,
 }
-
-export default SEO
