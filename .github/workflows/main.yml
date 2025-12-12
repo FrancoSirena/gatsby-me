@@ -26,7 +26,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js 16
         uses: actions/setup-node@v1
         with:
@@ -37,7 +37,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         id: yarn-cache # use this to check for `cache-hit` (``)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
