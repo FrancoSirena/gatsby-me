@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import ToggleTheme from './ToggleTheme';
+
+export interface Props {
+  siteTitle: string;
+}
+
+const { siteTitle } = Astro.props;
+---
+
+<>
+  <header class="site-header">
+    <div class="header-logo">
+      <a href="/" class="unstyled">
+        <Logo alt="!Complicated logo" className="logo" />
+      </a>
+    </div>
+    <div class="header-link">
+      <a href="/" class="unstyled">
+        <h1>{siteTitle}</h1>
+      </a>
+    </div>
+    <div class="site-header__theme">
+      <ToggleTheme client:load />
+    </div>
+  </header>
+  <svg
+    viewBox="0 0 300 100"
+    class="separator"
+    aria-label="Text separator"
+  >
+    <polygon points="0 0, 300 0, 150 100"></polygon>
+  </svg>
+</>

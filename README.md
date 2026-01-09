@@ -1,96 +1,97 @@
 
-[![codecov](https://codecov.io/gh/FrancoSirena/gatsby-me/branch/main/graph/badge.svg?token=880M2FLKD7)](https://codecov.io/gh/FrancoSirena/gatsby-me) [![Netlify Status](https://api.netlify.com/api/v1/badges/cb4401b8-51f4-4a93-87cb-64616d9cacb5/deploy-status)](https://app.netlify.com/sites/upbeat-bohr-4a3681/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cb4401b8-51f4-4a93-87cb-64616d9cacb5/deploy-status)](https://app.netlify.com/sites/upbeat-bohr-4a3681/deploys)
 
 # My Personal Blog
 
 [francosirena.DEV](https://francosirena.dev)
 
-This is my personal blog in which I write tech posts or just tech notes from time to time, the main purpose here is to keep my findings public and to sere as a "reference" for times when I find myself troubling to remember about someting.
+This is my personal blog in which I write tech posts or just tech notes from time to time. The main purpose here is to keep my findings public and to serve as a "reference" for times when I find myself troubling to remember about something.
 
 I am a Staff Software Engineer, mostly focused on Frontend development but not limited to it.
 
-
-## Tech Spec
+## Tech Stack
 
 This project was built using:
-- `gatsby` and `typescript` for the UI layer
-- `jest` and `@testing-library` for the unit testing layer
-- `cypress` for the `e2e` layer
-- automation is taken care by `github-actions` and `codecov`
+- `Astro` for the static site generation
+- `React` for interactive components
+- `TypeScript` for type safety
+- `Cypress` for e2e testing
+- Automation is taken care of by `GitHub Actions`
 
-### Gatsby
+### Astro
 
-To get the blog to its final state I used some `gatsby` plugins which helped me achieving my goal, each of them responsible for a specific part of it:
-I am going to highlight some of the very important ones that are playing a major role:
-- `gatsby-transformer-remark`: To read and parse the **.md** files
-- `gatsby-remark-prismjs`: To style the code snippets and a nice way, supporting multiple languages
-- `gatsby-remark-code-buttons`: To add the copy/paste on all my code snippets
-- `gatsby-remark-autolink-headers`: To create links for all my heading elements, which is a must in a blog in my point of view
+This blog is built with Astro, a modern static site generator that delivers exceptional performance. Key features include:
+- **Content Collections**: Blog posts are managed using Astro's content collections API
+- **Markdown Support**: Posts are written in Markdown with frontmatter
+- **Syntax Highlighting**: Code snippets are styled using Shiki with GitHub Dark theme
+- **SEO Optimized**: Built-in meta tags and sitemap generation
+- **React Integration**: Interactive components when needed via `@astrojs/react`
 
-### Typescript
+### TypeScript
 
-I am using a very simple config here, nothing fancy, and I am integrating it with `gatsby` with the puglin `gatsby-plugin-typescript`
-For a detailed view on how `typescript` is configured here, check the `tsconfig.json` file.
+The project uses TypeScript throughout for type safety and better developer experience. Check the `tsconfig.json` file for the configuration details.
 
-### Jest and Testing Library
+### Development
 
-There are a few specific things when we get to testing `gatsby` with `jest` and `@testing-library`, to be fair the `@testing-library` doesn't add much challenge, but the `jest` piece kinda does.
+#### Commands
 
-So, let's check some of the specifics that are necessary to make it work. ( you can find them all here [Unit Testing - Gatsby](https://www.gatsbyjs.com/docs/how-to/testing/unit-testing)
+All commands are run from the root of the project:
 
-```js
-// jest-config.js
-module.exports = {
-  transform: {
-    "^.+\\.tsx?$": `<rootDir>/jest-preprocess.js`,
-  },
-  moduleNameMapper: {
-    ".+\\.(css|styl|less|sass|scss)$": `identity-obj-proxy`,
-    ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": `<rootDir>/__mocks__/file-mock.js`,
-  },
-  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
-  transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
-  globals: {
-    __PATH_PREFIX__: ``,
-  },
-  testURL: `http://localhost`,
-  setupFiles: [`<rootDir>/loadershim.js`, `<rootDir>/local-storage.js`],
-  // The following are just for codecov
-  collectCoverage: true,
-  coverageReporters: ["html", "lcov"],
-}
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:4321`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro`        | Run CLI commands like `astro add`, `astro check` |
+| `npm run format`       | Format code with Prettier                        |
+| `npm run type-check`   | Run TypeScript type checking                     |
+| `npm run test:e2e`     | Run Cypress e2e tests                           |
+
+#### Project Structure
+
+```
+/
+├── public/
+│   ├── icon.png
+│   └── me.png
+├── src/
+│   ├── components/
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── Posts.astro
+│   │   └── ...
+│   ├── content/
+│   │   ├── config.ts
+│   │   └── tech-posts/
+│   │       └── *.md
+│   ├── css/
+│   │   └── *.css
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── 404.astro
+│   │   └── [...slug].astro
+│   └── types/
+│       └── *.d.ts
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-```js
-// jest-preprocess.js
-const babelOptions = {
-  presets: ["babel-preset-gatsby", "@babel/preset-typescript"],
-}
-module.exports = require("babel-jest").createTransformer(babelOptions)
-```
-
-```js
-// loadershim.js
-global.___loader = {
-  enqueue: jest.fn(),
-}
-```
-
-The rest is specific to my use case, where I am mocking `localStorage` so I can have control over it.
-
-### GitHub Actions
-
-I wrote a very simple action that will run the tests, using yarn cache to make it faster, on every commit on a pull request which the target is `main`.
-
-The `yml` file can be found at: **.github/workflows/main.yml**
+- `src/content/tech-posts/`: Blog posts in Markdown format
+- `src/pages/`: File-based routing (index.astro = homepage, [...slug].astro = dynamic blog post pages)
+- `src/components/`: Reusable Astro and React components
+- `src/layouts/`: Page layouts
+- `public/`: Static assets
 
 ## 💫 Deployment
 
-This site is deployed at [Netlify](https://app.netlify.com/).
+This site is deployed on [Netlify](https://app.netlify.com/).
 
-## Build
-This site was created using the default starter kit of gatsby and then I was changing as necessary to get to the point where it is at.
+## Migration Notes
 
-Powered by [Gatsby](https://gatsbyjs.com)
+This project was originally built with Gatsby and has been migrated to Astro for better performance, simpler architecture, and improved developer experience.
 
-To read more about the default starter kit: [Gatsby Starters](https://www.gatsbyjs.com/starters/)
+Powered by [Astro](https://astro.build)

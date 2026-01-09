@@ -27,31 +27,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 16
+      - name: Use Node.js 21
         uses: actions/setup-node@v1
         with:
-          node-version: 16
-      - run: npm install -g yarn
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (``)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: 21
+      - run: npm install -g corepack
 
       - name: Install dependencies
         run: yarn install
-
-      - name: Run tests
-        run: yarn test --coverage
-
-      - run: bash <(curl -s https://codecov.io/bash) # Upload to Codecov
 
       - name: Run E2E tests
         run: yarn test:e2e:ci

@@ -1,5 +1,4 @@
 {
-  "baseUrl": "http://localhost:8000/",
-  "integrationFolder": "cypress/e2e",
-  "ignoreTestFiles": "**/examples/*.js"
+  "baseUrl": "http://localhost:4321/",
+  "integrationFolder": "cypress/e2e"
 }

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import PostLink from './PostLink.astro';
+
+// Get all tech posts and sort by date (newest first)
+const posts = await getCollection('tech-posts') || [];
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+---
+
+<nav class="navigation-post-links" data-testid="posts-list">
+  {sortedPosts.map((post) => (
+    <PostLink post={post} />
+  ))}
+</nav>

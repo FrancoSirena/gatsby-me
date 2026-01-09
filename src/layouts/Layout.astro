@@ -1,0 +1,65 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../css/layout.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Technical notes about frontend, nodejs and javascript in general by Franco Sirena.' } = Astro.props;
+const siteTitle = '!Complicated';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@francosirena" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <title>{title}</title>
+    
+    <!-- Google Analytics -->
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-4XWJNQ1VCB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4XWJNQ1VCB', {
+        anonymize_ip: true
+      });
+    </script>
+
+  </head>
+  <body>
+    <div class="page">
+      <svg
+        viewBox="0 0 100 100"
+        class="triangle"
+        aria-label="Left corner triangle"
+      >
+        <polygon id="e1_polygon" points="0 0, 0 100, 100 0"></polygon>
+      </svg>
+      <div class="site-content">
+        <Header siteTitle={siteTitle} />
+        <div class="content">
+          <main>
+            <slot />
+          </main>
+        </div>
+      </div>
+      <Footer />
+    </div>
+    
+  </body>
+</html>
