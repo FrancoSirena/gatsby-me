@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PostFooter from '../components/PostFooter.astro';
+import '../templates/post.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('tech-posts') || [];
+  
+  return posts.map((post) => ({
+    params: { slug: post.data.permalink.replace(/^\//, '') }, // Remove leading slash
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'tech-posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Get all posts for navigation
+const allPosts = await getCollection('tech-posts') || [];
+const sortedPosts = allPosts.sort((a, b) => {
+  return new Date(a.data.date).getTime() - new Date(b.data.date).getTime();
+});
+
+// Find previous and next posts
+const currentIndex = sortedPosts.findIndex((p) => p.data.permalink === post.data.permalink);
+const previous = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+const next = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+---
+
+<Layout title={post.data.title}>
+  <div class="blog-post-container" data-testid="post-container">
+    <div class="blog-post">
+      <h1>{post.data.title}</h1>
+      <div class="blog-post-content">
+        <Content />
+      </div>
+    </div>
+  </div>
+  <hr />
+  <PostFooter previous={previous} next={next} />
+</Layout>

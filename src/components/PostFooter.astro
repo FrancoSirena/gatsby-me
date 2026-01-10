@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  previous: CollectionEntry<'tech-posts'> | null;
+  next: CollectionEntry<'tech-posts'> | null;
+}
+
+const { previous, next } = Astro.props;
+---
+
+<nav class="nav-footer__container">
+    {next ? (
+        <a class="nav-footer nav-footer__next" href={next.data.permalink}>{next.data.title}</a>
+    ) : 
+        <a class="nav-footer nav-footer__next" href="/">Home</a>
+    }
+    {previous ? (
+        <a class="nav-footer nav-footer__previous" href={previous.data.permalink}>{previous.data.title}</a>
+    ) : 
+        <a class="nav-footer nav-footer__previous" href="/">Home</a>
+    }
+</nav>

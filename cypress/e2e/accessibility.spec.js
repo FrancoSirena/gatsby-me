@@ -29,6 +29,9 @@ describe("[Dark Mode] Accessibility tests", () => {
       .get("body")
       .find("[data-testid='post-container']")
       .get("body")
+    
+      cy.injectAxe()
+    
     cy.checkA11y(undefined, {
       includedImpacts: ["critical", "serious"],
       runOnly: {
@@ -48,7 +51,7 @@ describe("[Regular Mode] Accessibility tests", () => {
         window.localStorage.setItem("theme", "regular")
       },
     })
-      .get("main")
+      .get("body")
       .injectAxe()
   })
   it("Has no detectable accessibility violations on load", () => {
@@ -61,8 +64,9 @@ describe("[Regular Mode] Accessibility tests", () => {
       .click()
       .get("body")
       .find("[data-testid='post-container']")
-      .get("body")
+      .get("body");
 
+    cy.injectAxe()
     cy.checkA11y(undefined, {
       includedImpacts: ["critical", "serious"],
     })

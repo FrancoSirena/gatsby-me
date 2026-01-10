@@ -271,18 +271,26 @@ p a:link {
   position: relative;
 }
 
+.nav-footer__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .nav-footer:hover,
 .nav-footer:active {
-  color: var(--font-color-over);
+  color: var(--font-color-over) !important;
   background-color: var(--background-over);
 }
 
 .nav-footer__previous {
   text-align: right;
+  margin-left:auto;
 }
 
 .nav-footer__next {
   text-align: left;
+  margin-right:auto;
 }
 
 .nav-footer__previous::after {
@@ -311,7 +319,12 @@ p a:link {
 }
 
 .intro-pic__picture {
-  width: 100px;
+  width: 80px;
   height: 100px;
   clip-path: circle();
+}
+
+.astro-code {
+  padding: 8px;
+  border-radius: 4px;
 }

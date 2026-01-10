@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'tech-posts'>;
+}
+
+const { post } = Astro.props;
+const { title, permalink, date, summary } = post.data;
+
+// Format date
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="post-link" data-testid="link-post-article">
+  <header>
+    <h2>
+      <a href={permalink} data-testid="link-post">{title}</a>
+    </h2>
+    <small data-testid="link-date" data-date={date}>{formattedDate}</small>
+  </header>
+  {summary && <p>{summary}</p>}
+</article>
